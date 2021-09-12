@@ -1,0 +1,12 @@
+.card-list {
+  margin-bottom: 20px;
+  &:hover {
+    background-color: rgb(240, 240, 240);
+  }
+
+  .card-body {
+    font-size: 18px;
+    line-height: 40px;
+    color: #0c0d36;
+  }
+}
