@@ -1,60 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+@extends('layouts.admin')
 
-    <title>Dashboard - ToCat Store</title>
+@section('content')
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link href="./style/main.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="./images/logokucingbulet.ico" />
-  </head>
-
-  <body>
-    <div class="page-dashboard">
-      <div class="d-flex" id="wrapper" data-aos="fade-right">
-        <!-- Sidebar -->
-        <div class="border-right" id="sidebar-wrapper">
-          <div class="sidebar-heading text-center">
-            <img
-              src="./images/logocat.jpeg"
-              alt=""
-              class="my-4"
-              style="width: 118px"
-            />
-          </div>
-          <div class="list-group list-group-flush">
-            <a
-              href="dashboard.html"
-              class="list-group-item list-group-item-action active"
-              >Dashboard</a
-            >
-            <a
-              href="dashboard-products.html"
-              class="list-group-item list-group-item-action"
-              >My Products</a
-            >
-            <a
-              href="dashboard-transactions.html"
-              class="list-group-item list-group-item-action"
-              >Transactions</a
-            >
-            <a
-              href="dashboard-account.html"
-              class="list-group-item list-group-item-action"
-              >My Account</a
-            >
-          </div>
-        </div>
-        <!-- /#sidebar-ended -->
-
-        <!-- Page Content -->
+<!-- Page Content -->
         <div id="page-content-wrapper">
           <nav
             class="navbar navbar-store navbar-expand-lg navbar-light fixed-top"
@@ -256,21 +204,5 @@
           </div>
         </div>
         <!-- Page Content ended -->
-      </div>
-    </div>
-    <!-- Bootstrap core JavaScript -->
-    <script src="./vendor/jquery/jquery.slim.min.js"></script>
-    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <!-- Menu Toggle Script -->
-    <script>
-      $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-      });
-    </script>
-  </body>
-</html>
+
+@endsection

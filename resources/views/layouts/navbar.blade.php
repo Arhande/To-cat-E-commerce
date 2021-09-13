@@ -36,7 +36,7 @@
               <a href="{{ route('landing') }}" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-              <a href="products.html" class="nav-link">Products</a>
+              <a href="{{ route('products') }}" class="nav-link">Products</a>
             </li>
             <li class="nav-item">
               <a href="contactus.html" class="nav-link">Contact Us</a>

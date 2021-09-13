@@ -147,7 +147,7 @@
                     <div class="products-thumbnail">
                         <div class="products-image">
                         <img
-                            src="images/pic4.png"
+                            src="{{ asset('images/pic4.png') }}"
                             style="width: 225px; height: 150px"
                             alt=""
                         />
