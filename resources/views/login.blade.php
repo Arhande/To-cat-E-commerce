@@ -39,6 +39,10 @@
                 <button class="btn btn-dark btn-block mt-4" style="font-family: Poppins; font-style: normal; font-weight: normal;" type="submit">
                   LOGIN
                 </button>
+                <div class="text-center m-2">OR</div>
+                <a href="{{ route('google') }}" class="btn btn-light btn-block mt-4">
+                  <img src="./images/google.png" width="35px" alt="google">
+                </a>
             </div>
             <div class="col-lg-2">
             

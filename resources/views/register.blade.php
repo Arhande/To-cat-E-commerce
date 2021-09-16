@@ -72,6 +72,10 @@
                 >
                 REGISTER NOW
               </button>
+              <div class="text-center m-2">OR</div>
+              <a href="{{ route('google') }}" class="btn btn-light btn-block mt-4">
+                  <img src="./images/google.png" width="35px" alt="google">
+                </a>
               <p
               style="
                     font-family: Poppins;

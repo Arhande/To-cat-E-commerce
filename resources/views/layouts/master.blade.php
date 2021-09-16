@@ -24,6 +24,7 @@
     @include('layouts.footer')
     
 
+    @stack('scripts')
     
 
     <!-- Bootstrap core JavaScript -->

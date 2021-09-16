@@ -271,7 +271,10 @@
                       >Settings</a
                     >
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/">Logout</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button href="LandingPage.html" class="dropdown-item">Logout</button>
+                  </form>
                   </div>
                 </li>
                 <li class="nav-item">
