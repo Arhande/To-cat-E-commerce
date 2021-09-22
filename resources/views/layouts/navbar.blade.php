@@ -39,7 +39,7 @@
               <a href="{{ route('products') }}" class="nav-link">Products</a>
             </li>
             <li class="nav-item">
-              <a href="contactus.html" class="nav-link">Contact Us</a>
+              <a href="{{ route('contact') }}" class="nav-link">Contact Us</a>
             </li>
             @auth
                 <!-- Desktop Menu -->
@@ -57,13 +57,13 @@
                 <div class="dropdown-menu">
                   <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button href="LandingPage.html" class="dropdown-item">Logout</button>
+                    <button class="dropdown-item">Logout</button>
                   </form>
                 </div>
               </li>
 
               <li class="nav-item">
-                <a href="cart.html" class="nav-link d-inline-block">
+                <a href="{{ route('cart') }}" class="nav-link d-inline-block">
                   <img src="./images/cart.svg" alt="" />
                   <div class="card-badge">0</div>
                 </a>

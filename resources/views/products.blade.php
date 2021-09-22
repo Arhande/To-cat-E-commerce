@@ -11,21 +11,15 @@
               <nav>
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item ">
-                    <a href="index.html">Home</a>
+                    <a href="{{ route('landing') }}">Home</a>
                   </li>
-                   <li class="breadcrumb-item">
-                    <a href="#">For Adult</a>
+                  @foreach ( $categories as  $category)
+                    <li class="breadcrumb-item">
+                    <a href="{{ route("products", [
+                      'category'=> $category->name
+                    ]) }}">{{ $category->name }}</a>
                   </li>
-                   <li class="breadcrumb-item">
-                    <a href="#">For Kitten</a>
-                  </li>
-                   <li class="breadcrumb-item">
-                    <a href="#">Tools</a>
-                  </li>
-                   <li class="breadcrumb-item">
-                    <a href="#">Vitamin</a>
-                  </li>
-                  
+                  @endforeach
                 </ol>
               </nav>
             </div>
@@ -49,7 +43,7 @@
                 
                     data-aos-delay="100"
                 >
-                    <a href="details.html" class="component-products d-block">
+                    <a href="{{ route('products.detail', $product->id) }}" class="component-products d-block">
                     <div class="products-thumbnail">
                         <div
                         class="products-image"

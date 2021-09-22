@@ -40,182 +40,133 @@
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td style="width: 25%">
-                      <img
-                        src="/images/cart/pic1.png"
-                        alt=""
-                        class="cart-image"
-                        style="width: 180px"
-                      />
-                    </td>
-                    <td style="width: 35%">
-                      <div class="product-title">Royal Canin For Kitten</div>
-                    </td>
-                    <td style="width: 25%">
-                      <div class="product-title">76,000</div>
-                      <div class="product-subtitle">IDR</div>
-                    </td>
-                    <td style="width: 20%">
-                      <div class="product-pesanan">1</div>
-                    </td>
-                    <td style="width: 20%">
-                      <a href="#" class="btn btn-remove-cart btn-danger">
-                        Remove
-                      </a>
-                    </td>
-                  </tr>
 
-                  <tr>
-                    <td style="width: 25%">
-                      <img
-                        src="/images/cart/pic2.png"
-                        alt=""
-                        class="cart-image"
-                        style="width: 180px"
-                      />
-                    </td>
-                    <td style="width: 35%">
-                      <div class="product-title">
-                        Royal Canin Protein for Adult Persian
-                      </div>
-                    </td>
-                    <td style="width: 25%">
-                      <div class="product-title">79,000</div>
-                      <div class="product-subtitle">IDR</div>
-                    </td>
-                    <td style="width: 20%">
-                      <div class="product-pesanan">1</div>
-                    </td>
-                    <td style="width: 20%">
-                      <a href="#" class="btn btn-remove-cart btn-danger">
-                        Remove
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="width: 25%">
-                      <img
-                        src="/images/cart/pic3.jpg"
-                        alt=""
-                        class="cart-image"
-                        style="width: 180px"
-                      />
-                    </td>
-                    <td style="width: 35%">
-                      <div class="product-title">Royal Canin for Adult</div>
-                    </td>
-                    <td style="width: 25%">
-                      <div class="product-title">85,000</div>
-                      <div class="product-subtitle">IDR</div>
-                    </td>
-                    <td style="width: 20%">
-                      <div class="product-size">1</div>
-                    </td>
-                    <td style="width: 20%">
-                      <a href="#" class="btn btn-remove-cart btn-danger">
-                        Remove
-                      </a>
-                    </td>
-                  </tr>
+                  @foreach ($carts as $cart)
+                    <tr>
+                      <td style="width: 25%">
+                        <img
+                          src="{{ asset($cart->products->images[0]->image_path) }}"
+                          alt=""
+                          class="cart-image"
+                          style="width: 180px"
+                        />
+                      </td>
+                      <td style="width: 35%">
+                        <div class="product-title">{{ $cart->products->name }}</div>
+                      </td>
+                      <td style="width: 25%">
+                        <div class="product-title">{{ $cart->products->harga }}</div>
+                        <div class="product-subtitle">IDR</div>
+                      </td>
+                      <td style="width: 20%">
+                        <div class="product-pesanan">{{ $cart->qty }}</div>
+                      </td>
+                      <td style="width: 20%">
+                        <a href="#" class="btn btn-remove-cart btn-danger">
+                          Remove
+                        </a>
+                      </td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
           </div>
           <!-- Shipping -->
-          <div class="row" data-aos-delay="150">
-            <div class="col-12">
-              <hr />
+          <form action="{{ route('orders') }}" method="POST">
+            @csrf
+            <div class="row" data-aos-delay="150">
+              <div class="col-12">
+                <hr />
+              </div>
+              <div class="col-12">
+                <h2 class="mb-4">Shipping Details</h2>
+              </div>
             </div>
-            <div class="col-12">
-              <h2 class="mb-4">Shipping Details</h2>
-            </div>
-          </div>
-          <div class="row mb-2" data-aos-delay="200">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="addressOne">Receipent's Name</label>
-                <input
+            <div class="row mb-2" data-aos-delay="200">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="nama_penerima">Receipent's Name</label>
+                  <input
                   type="text"
                   class="form-control"
-                  id="receipentsname"
+                  id="nama_penerima"
                   aria-describedby="emailHelp"
-                  name="receipentsname"
+                  name="nama_penerima"
                   placeholder="Enter your full name"
-                />
+                  />
+                </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="addressTwo">Address</label>
-                <input
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="alamat">Address</label>
+                  <input
                   type="text"
                   class="form-control"
-                  id="addressTwo"
+                  id="alamat"
                   aria-describedby="emailHelp"
-                  name="addressTwo"
+                  name="alamat"
                   placeholder="Jln Rawamangun Muka"
-                />
+                  />
+                </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="province">Province</label>
-                <select name="province" id="province" class="form-control">
-                  <option value="Bandung">Bandung</option>
-                  <option value="Banten">Banten</option>
-                  <option value="Bekasi">Bekasi</option>
-                  <option value="Bogor">Bogor</option>
-                  <option value="Cirebon">Cirebon</option>
-                  <option value="Depok">Depok</option>
-                  <option value="Denpasar">Solo</option>
-                  <option value="Jakarta">DKI Jakarta</option>
-                  <option value="Kediri">Kediri</option>
-                  <option value="Lampung">Lampung</option>
-                  <option value="Malang">Malang</option>
-                  <option value="Medan">Medan</option>
-                  <option value="Palembang">Palembang</option>
-                  <option value="Padang">Padang</option>
-                  <option value="Purwakarta">Purwakarta</option>
-                  <option value="Semarang">Semarang</option>
-                  <option value="Surabaya">Surabaya</option>
-                  <option value="Solo">Solo</option>
-                  <option value="Tangerang">Tangerang</option>
-                </select>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="provinsi">Province</label>
+                  <select name="provinsi" id="provinsi" class="form-control">
+                    <option value="Bandung">Bandung</option>
+                    <option value="Banten">Banten</option>
+                    <option value="Bekasi">Bekasi</option>
+                    <option value="Bogor">Bogor</option>
+                    <option value="Cirebon">Cirebon</option>
+                    <option value="Depok">Depok</option>
+                    <option value="Denpasar">Solo</option>
+                    <option value="Jakarta">DKI Jakarta</option>
+                    <option value="Kediri">Kediri</option>
+                    <option value="Lampung">Lampung</option>
+                    <option value="Malang">Malang</option>
+                    <option value="Medan">Medan</option>
+                    <option value="Palembang">Palembang</option>
+                    <option value="Padang">Padang</option>
+                    <option value="Purwakarta">Purwakarta</option>
+                    <option value="Semarang">Semarang</option>
+                    <option value="Surabaya">Surabaya</option>
+                    <option value="Solo">Solo</option>
+                    <option value="Tangerang">Tangerang</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="city">City</label>
-                <select name="city" id="city" class="form-control">
-                  <option value="Jakarta">Jakarta Pusat</option>
-                  <option value="Surabaya">Jakarta Barat</option>
-                  <option value="Semarang">Jakarta Timur</option>
-                  <option value="Semarang">Jakarta Utarar</option>
-                  <option value="Semarang">Jakarta Selatan</option>
-                </select>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <select name="city" id="city" class="form-control">
+                    <option value="Jakarta">Jakarta Pusat</option>
+                    <option value="Surabaya">Jakarta Barat</option>
+                    <option value="Semarang">Jakarta Timur</option>
+                    <option value="Semarang">Jakarta Utarar</option>
+                    <option value="Semarang">Jakarta Selatan</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="postalCode">Zip Code</label>
-                <input
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="kode_pos">Zip Code</label>
+                  <input
                   class="form-control"
-                  id="postalCode"
-                  name="postalCode"
+                  id="kode_pos"
+                  name="kode_pos"
                   placeholder="123456"
-                />
-              </div>
+                  />
+                </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="country">Country</label>
+                <label for="negara">Country</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="country"
-                  name="country"
+                  id="negara"
+                  name="negara"
                   value="Indonesia"
                   readonly
                 />
@@ -223,26 +174,38 @@
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label for="mobile">Mobile Phone</label>
+                <label for="phone">Mobile Phone</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="mobile"
-                  name="mobile"
+                  id="phone"
+                  name="phone"
                   placeholder="+62 12345 678"
                 />
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label for="city">Shipment</label>
-                <select name="city" id="city" class="form-control">
-                  <option value="Jakarta">Tiki</option>
-                  <option value="Surabaya">JNE Express</option>
+                <label for="shipment">Shipment</label>
+                <select name="shipment" id="shipment" class="form-control">
+                  <option value="Tiki">Tiki</option>
+                  <option value="JNE">JNE Express</option>
                 </select>
               </div>
             </div>
           </div>
+          <div class="form-group">
+            <label for="pembayaran">Pembayaran</label>
+                <select name="pembayaran" id="pembayaran" class="form-control">
+                  <option value="1">  
+                    <div class="row">
+                      <img src="./images/bri.png" style="width: 50px;" alt="">
+                      0340 0110 2960 506 - BRI (Arga Widya Samudera)</option>
+                    </div>
+                  <option value="2">55000 64597 - BCA (Farhan Fadhlurrohman)</option>
+                  
+                </select>
+              </div>
           <div class="row" data-aos-delay="150">
             <div class="col-12">
               <hr />
@@ -260,17 +223,25 @@
               <div class="total">Total :</div>
             </div>
             <div class="col-4 col-md-2">
-              <div class="subtotal">IDR 240,000</div>
+              <div class="subtotal">IDR {{ $total }}</div>
               <div class="shippingfee">IDR 10.000</div>
-              <div class="product-title text-success"><u>IDR 250,000</u></div>
+              <div class="product-title text-success"><u>IDR {{ $total }}</u></div>
+              <input
+                  type="text"
+                  value="{{ $total }}"
+                  name="total"
+                  hidden
+                />
             </div>
 
+
             <div class="col-8 col-md-3">
-              <a href="pembayaran.html" class="btn btn-dark mt-4 px-4 btn-block">
+              <button type="submit" class="btn btn-dark mt-4 px-4 btn-block">
                 Checkout Now
-              </a>
+              </button>
             </div>
           </div>
+          </form>
         </div>
       </section>
     </div>

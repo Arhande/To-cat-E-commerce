@@ -88,7 +88,7 @@
                 <div class="row">
                     @foreach ($products as $product)
                         <div class="col-6 col-md-4 col-lg-3" data-aos-delay="600">
-                            <a href="register.html" class="component-products d-block">
+                            <a href="{{ route('products.detail', $product->id) }}" class="component-products d-block">
                             <div class="products-thumbnail">
                                 <div class="products-image">
                                 <img
