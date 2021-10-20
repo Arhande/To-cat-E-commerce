@@ -12,7 +12,7 @@
     <title>Home | To-Cat Store</title>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link href="./style/main.css" rel="stylesheet" />
+    <link href="{{ asset('style/main.css') }}" rel="stylesheet" />
     <link rel="shortcut icon" href="./images/logokucingbulet.ico" />
     @stack('styles')
   </head>
@@ -29,12 +29,12 @@
     
 
     <!-- Bootstrap core JavaScript -->
-    <script src="./vendor/jquery/jquery.slim.min.js"></script>
-    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('vendor/jquery/jquery.slim.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
-    <script src="./script/navbar.scroll.js"></script>
+    <script src="{{ asset('script/navbar.scroll.js') }}"></script>
   </body>
 </html>

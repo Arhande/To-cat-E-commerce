@@ -58,12 +58,7 @@
                   </form>
                   </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link d-inline-block mt-1" href="#">
-                    <img src="./images/cart.svg" alt="" />
-                    <div class="card-badge">3</div>
-                  </a>
-                </li>
+                
               </ul>
               <!-- Mobile Menu -->
               <ul class="navbar-nav d-block d-lg-none mt-3">
@@ -88,118 +83,66 @@
               </div>
 
               <div class="dashboard-content">
-                <div class="row">
-                  <div class="col-md-4">
+                <div style="display: flex; align-items: center">
+
+                  <div class="row">
+                    <div class="col-md-12">
                     <div class="card mb-2">
-                      <div class="card-body">
+                      <div class="card-body" style="text-align: center">
                         <div class="dashboard-card-title">Customer</div>
-                        <div class="dashboard-card-subtitle">15,209</div>
+                        <div class="dashboard-card-subtitle">{{ $userCount }}</div>
                       </div>
                     </div>
                   </div>
-
-                  <div class="col-md-4">
+                  
+                  <div class="col-md-12">
                     <div class="card mb-2">
-                      <div class="card-body">
-                        <div class="dashboard-card-title">Revenue</div>
-                        <div class="dashboard-card-subtitle">$931,290</div>
+                      <div class="card-body" style="text-align: center">
+                        <div class="dashboard-card-title">omset</div>
+                        <div class="dashboard-card-subtitle">Rp. {{ $total_harga }}</div>
                       </div>
                     </div>
                   </div>
-
-                  <div class="col-md-4">
+                  
+                  <div class="col-md-12">
                     <div class="card mb-2">
-                      <div class="card-body">
+                      <div class="card-body" style="text-align: center">
                         <div class="dashboard-card-title">Transaction</div>
-                        <div class="dashboard-card-subtitle">22,409,399</div>
+                        <div class="dashboard-card-subtitle">{{ $orderCount }}</div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
                 <div class="row mt-3">
                   <div class="col-12 mt-2">
                     <h5 class="mb-3">Recent Transactions</h5>
                     <a
                       class="card card-list d-block"
-                      href="/dashboard-transactions-details.html"
                     >
                       <div class="card-body">
                         <div class="row">
-                          <div class="col-md-1">
-                            <img
-                              src="./images/dashboard/pic1.png"
-                              alt=""
-                              width="80px"
-                            />
-                          </div>
-                          <div class="col-md-4">Royal Canin Kitten Persian</div>
-                          <div class="col-md-3">To-Cat Store</div>
-                          <div class="col-md-3">12 Agustus, 2021</div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img
-                              src="./images/dashboard-arrow-right.svg"
-                              alt=""
-                              width="10px"
-                            />
-                          </div>
+                          <div class="col-md-3">Order id</div>
+                          <div class="col-md-4">Nama Penerima</div>
+                          <div class="col-md-5">Total Harga</div>
                         </div>
                       </div>
                     </a>
+                    @foreach ($orders as $order)
+                      <a
+                        class="card card-list d-block"
+                      >
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-3">{{ $order->id }}</div>
+                            <div class="col-md-4">{{ $order->nama_penerima }}</div>
+                            <div class="col-md-5">Rp. {{ $order->total_harga }}</div>
+                          </div>
+                        </div>
+                      </a>
+                    @endforeach
 
-                    <a
-                      class="card card-list d-block"
-                      href="dashboard-transactions-details.html"
-                    >
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-1">
-                            <img
-                              src="./images/dashboard/pic2.png"
-                              alt=""
-                              width="80px"
-                            />
-                          </div>
-                          <div class="col-md-4">Royal Canin Kitten</div>
-                          <div class="col-md-3">To-Cat Store</div>
-                          <div class="col-md-3">2 September, 2021</div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img
-                              src="./images/dashboard-arrow-right.svg"
-                              alt=""
-                              width="10px"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-
-                    <a
-                      class="card card-list d-block"
-                      href="dashboard-transactions-details.html"
-                    >
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-1">
-                            <img
-                              src="./images/dashboard/pic3.png"
-                              alt=""
-                              width="80px"
-                            />
-                          </div>
-                          <div class="col-md-4" style="padding-left:10px;">Royal Canin Adult</div>
-                          <div class="col-md-3">To-Cat Store</div>
-                          <div class="col-md-3">30 Juli, 2021</div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img
-                              src="./images/dashboard-arrow-right.svg"
-                              alt=""
-                              width="10px"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </a>
                   </div>
                 </div>
               </div>

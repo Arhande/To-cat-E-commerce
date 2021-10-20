@@ -28,4 +28,9 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class, 'order_products', 'order_id', 'product_id')->withPivot('qty');
     }
+
+    public function rekening()
+    {
+        return $this->belongsTo(Rekening::class, 'rekening_id', 'id');
+    }
 }

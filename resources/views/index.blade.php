@@ -104,40 +104,6 @@
                             <div class="products-price">Rp {{ $product->harga }}</div>
                             </a>
                         </div>
-                        <div class="col-6 col-md-4 col-lg-3" data-aos-delay="600">
-                            <a href="register.html" class="component-products d-block">
-                            <div class="products-thumbnail">
-                                <div class="products-image">
-                                <img
-                                    src="{{ asset($product->images[0]->image_path) }}"
-                                    style="width: 225px; height: 150px"
-                                    alt=""
-                                />
-                                </div>
-                            </div>
-                            <div class="products-text text-black-50">
-                                {{ $product->name }}
-                            </div>
-                            <div class="products-price">Rp {{ $product->harga }}</div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3" data-aos-delay="600">
-                            <a href="register.html" class="component-products d-block">
-                            <div class="products-thumbnail">
-                                <div class="products-image">
-                                <img
-                                    src="{{ asset($product->images[0]->image_path) }}"
-                                    style="width: 225px; height: 150px"
-                                    alt=""
-                                />
-                                </div>
-                            </div>
-                            <div class="products-text text-black-50">
-                                {{ $product->name }}
-                            </div>
-                            <div class="products-price">Rp {{ $product->harga }}</div>
-                            </a>
-                        </div>
                     @endforeach
                 </div>
             </div>

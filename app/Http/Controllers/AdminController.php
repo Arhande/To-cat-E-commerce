@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index(){
-        return view('dashboard');
-    }
+        $orders = Order::latest()->get();
+        $userCount = User::count();
+        $orderCount = Order::count();
+        $total_harga = Order::sum('total_harga');
 
-    public function products(){
-        return view('dashboard-products');
-    }
-
-    public function transactions(){
-        return view('dashboard-transactions');
-    }
-
-    public function accounts(){
-        return view('dashboard-accounts');
+        return view('dashboard', [
+            'orders' => $orders,
+            'userCount' => $userCount,
+            'orderCount' => $orderCount,
+            'total_harga' => $total_harga,
+        ]);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
@@ -32,10 +34,6 @@ Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallb
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'registerStore'])->name('register.store');
 
-Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-Route::get('/dashboard-products', [AdminController::class, 'products'])->name('dashboard.products');
-Route::get('/dashboard-transactions', [AdminController::class, 'transactions'])->name('dashboard.transactions');
-Route::get('/dashboard-accounts', [AdminController::class, 'accounts'])->name('dashboard.accounts');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{product}', [ProductController::class, 'details'])->name('products.detail');
@@ -47,5 +45,23 @@ Route::get('/contact', function(){
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::post('/orders', [OrderController::class, 'store'])->name('orders');
+Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::get('/orders/bukti/{order}', [OrderController::class, 'bukti'])->name('orders.show.bukti');
+Route::post('/orders/bukti/{order}', [OrderController::class, 'storeBukti'])->name('orders.store.bukti');
 
+
+Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+
+Route::get('/dashboard-products', [AdminProductController::class, 'index'])->name('dashboard.products');
+Route::get('/dashboard-products/create', [AdminProductController::class, 'create'])->name('dashboard.products.create');
+Route::post('/dashboard-products', [AdminProductController::class, 'store'])->name('dashboard.products.store');
+Route::get('/dashboard-products/{product}', [AdminProductController::class, 'edit'])->name('dashboard.products.edit');
+Route::put('/dashboard-products/{product}', [AdminProductController::class, 'update'])->name('dashboard.products.update');
+
+Route::get('/dashboard-transactions', [AdminOrderController::class, 'index'])->name('dashboard.transactions');
+Route::get('/dashboard-transactions/{order}', [AdminOrderController::class, 'edit'])->name('dashboard.transactions.edit');
+Route::put('/dashboard-transactions/{order}', [AdminOrderController::class, 'update'])->name('dashboard.transactions.update');
+
+Route::get('/dashboard-accounts', [AdminController::class, 'accounts'])->name('dashboard.accounts');

@@ -55,12 +55,7 @@
                     <a class="dropdown-item" href="/">Logout</a>
                   </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link d-inline-block mt-2" href="#">
-                    <img src="./images/cart.svg" alt="" />
-                    <div class="card-badge">3</div>
-                  </a>
-                </li>
+                
               </ul>
               <!-- Mobile Menu -->
               <ul class="navbar-nav d-block d-lg-none mt-3">
@@ -87,128 +82,33 @@
                 <div class="row">
                   <div class="col-12">
                     <a
-                      href="dashboard-products-create.html"
+                      href="{{ route('dashboard.products.create') }}"
                       class="btn btn-success"
                       >Add New Product</a
                     >
                   </div>
                 </div>
                 <div class="row">
-              <div
-                class="col-6 col-md-4 col-lg-3"
-                data-aos="fade-up"
-                data-aos-delay="100" style="margin-top:15px;"
-              >
-                <a href="dashboard-products-details.html" class="component-products d-block">
-                  <div class="products-thumbnail">
+                  @foreach ($products as $product)
                     <div
-                      class="products-image"
-                    >
-                      <img src="images/pic1.png" style="width: 225px; height: 150px;" alt="" />
-                    </div>
+                    class="col-6 col-md-4 col-lg-3"
+                    data-aos="fade-up"
+                      data-aos-delay="100" style="margin-top:15px;"
+                      >
+                      <a href="{{ route('dashboard.products.edit', ['product'=>$product->id]) }}" class="component-products d-block">
+                        <div class="products-thumbnail">
+                          <div
+                          class="products-image"
+                          >
+                          <img src="{{ asset($product->images[0]->image_path) }}" style="width: 225px; height: 150px;" alt="" />
+                        </div>
+                      </div>
+                      <div class="products-text text-black-50">{{ $product->name }}</div>
+                      <div class="products-price">Rp {{ $product->harga }}</div>
+                    </a>
                   </div>
-                  <div class="products-text text-black-50">Royal Canin Chaton Sterllise</div>
-                  <div class="products-price">Rp 300000</div>
-                </a>
+                @endforeach
               </div>
-
-              <div
-                class="col-6 col-md-4 col-lg-3"
-                data-aos="fade-up"
-                data-aos-delay="200" style="margin-top:15px;"
-              >
-                <a href="details.html" class="component-products d-block">
-                  <div class="products-thumbnail">
-                    <div
-                      class="products-image"
-                    >
-                      <img src="images/pic2.png" style="width: 225px; height: 150px;" alt="" />
-                    </div>
-                  </div>
-                  <div class="products-text text-black-50">Royal Canin Adult <br>
-                    (7th+) indoor - 4kg
-                  </div>
-                  <div class="products-price">Rp 300,000</div>
-                </a>
-              </div>
-
-              <div
-                class="col-6 col-md-4 col-lg-3"
-                data-aos="fade-up"
-                data-aos-delay="300" style="margin-top:15px;"
-              >
-                <a href="details.html" class="component-products d-block">
-                  <div class="products-thumbnail">
-                    <div class="products-image">
-                      <img src="images/pic6.png" style="width: 225px; height: 150px;" alt="" />
-                    </div>
-                  </div>
-                  <div class="products-text">
-                    Royal Canin for Adult <br>
-                    Appatite Control"
-                  </div>
-                  <div class="products-price">Rp 249000</div>
-                </a>
-              </div>
-
-              <div
-                class="col-6 col-md-4 col-lg-3"
-                data-aos="fade-up"
-                data-aos-delay="400" style="margin-top:15px;"
-              >
-                <a href="details.html" class="component-products d-block">
-                  <div class="products-thumbnail">
-                    <div
-                      class="products-image"
-                    >
-                      <img src="images/pic3.png" style="width: 225px; height: 150px;" alt="" />
-                    </div>
-                  </div>
-                  <div class="products-text">Royal Canin for Adult <br>
-                    persian indoor</div>
-                  <div class="products-price">Rp 360,000</div>
-                </a>
-              </div>
-
-              <div
-                class="col-6 col-md-4 col-lg-3"
-                data-aos="fade-up"
-                data-aos-delay="500" style="margin-top:15px;"
-              >
-                <a href="details.html" class="component-products d-block">
-                  <div class="products-thumbnail">
-                    <div
-                      class="products-image"
-                    >
-                      <img src="images/pic4.png" style="width: 225px; height: 150px;" alt="" />
-                    </div>
-                  </div>
-                  <div class="products-text">
-                    Royal Canin for kitten
-                  </div>
-                  <div class="products-price">Rp 59,000</div>
-                </a>
-              </div>
-
-              <div
-                class="col-6 col-md-4 col-lg-3"
-                data-aos="fade-up"
-                data-aos-delay="600" style="margin-top:15px;"
-              >
-                <a href="details.html" class="component-products d-block">
-                  <div class="products-thumbnail">
-                    <div
-                      class="products-image"
-                    >
-                      <img src="images/pic5.png" style="width: 225px; height: 150px;" alt="" />
-                    </div>
-                  </div>
-                  <div class="products-text">Royal Canin for kitten <br>
-                    Persian 1 year old</div>
-                  <div class="products-price">Rp 79,000</div>
-                </a>
-              </div>
-            </div>
               </div>
             </div>
           </div>

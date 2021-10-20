@@ -111,43 +111,17 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="form-group">
-                  <label for="provinsi">Province</label>
-                  <select name="provinsi" id="provinsi" class="form-control">
-                    <option value="Bandung">Bandung</option>
-                    <option value="Banten">Banten</option>
-                    <option value="Bekasi">Bekasi</option>
-                    <option value="Bogor">Bogor</option>
-                    <option value="Cirebon">Cirebon</option>
-                    <option value="Depok">Depok</option>
-                    <option value="Denpasar">Solo</option>
-                    <option value="Jakarta">DKI Jakarta</option>
-                    <option value="Kediri">Kediri</option>
-                    <option value="Lampung">Lampung</option>
-                    <option value="Malang">Malang</option>
-                    <option value="Medan">Medan</option>
-                    <option value="Palembang">Palembang</option>
-                    <option value="Padang">Padang</option>
-                    <option value="Purwakarta">Purwakarta</option>
-                    <option value="Semarang">Semarang</option>
-                    <option value="Surabaya">Surabaya</option>
-                    <option value="Solo">Solo</option>
-                    <option value="Tangerang">Tangerang</option>
-                  </select>
-                </div>
+              <div class="form-group">
+                <label for="province">Provinsi</label>
+                <input type="text" id="provinsi" name="provinsi" class="form-control">
               </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="city">City</label>
-                  <select name="city" id="city" class="form-control">
-                    <option value="Jakarta">Jakarta Pusat</option>
-                    <option value="Surabaya">Jakarta Barat</option>
-                    <option value="Semarang">Jakarta Timur</option>
-                    <option value="Semarang">Jakarta Utarar</option>
-                    <option value="Semarang">Jakarta Selatan</option>
-                  </select>
-                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="kota" name="kota" class="form-control">
               </div>
+            </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="kode_pos">Zip Code</label>
@@ -187,7 +161,7 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label for="shipment">Shipment</label>
-                <select name="shipment" id="shipment" class="form-control">
+                <select name="kurir" id="kurir" class="form-control">
                   <option value="Tiki">Tiki</option>
                   <option value="JNE">JNE Express</option>
                 </select>

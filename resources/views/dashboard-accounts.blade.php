@@ -54,12 +54,7 @@
                     <a class="dropdown-item" href="/">Logout</a>
                   </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link d-inline-block mt-2" href="#">
-                    <img src="./images/cart.svg" alt="" />
-                    <div class="card-badge">3</div>
-                  </a>
-                </li>
+                
               </ul>
               <!-- Mobile Menu -->
               <ul class="navbar-nav d-block d-lg-none mt-3">
@@ -277,12 +272,7 @@
                   </form>
                   </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link d-inline-block mt-2" href="#">
-                    <img src="./images/cart.svg" alt="" />
-                    <div class="card-badge">3</div>
-                  </a>
-                </li>
+                
               </ul>
               <!-- Mobile Menu -->
               <ul class="navbar-nav d-block d-lg-none mt-3">

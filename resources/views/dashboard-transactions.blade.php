@@ -56,12 +56,7 @@
                     <a class="dropdown-item" href="/">Logout</a>
                   </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link d-inline-block mt-1" href="#">
-                    <img src="./images/cart.svg" alt="" />
-                    <div class="card-badge">3</div>
-                  </a>
-                </li>
+                
               </ul>
               <!-- Mobile Menu -->
               <ul class="navbar-nav d-block d-lg-none mt-3">
@@ -75,143 +70,36 @@
             </div>
           </nav>
 
-          <div
-            class="section-content section-dashboard-home"
-            data-aos="fade-up"
-          >
-            <div class="container-fluid">
-              <div class="dashboard-heading">
-                <h2 class="dashboard-title">Transactions</h2>
-                <p class="dashboard-subtitle">
-                  Big result start from the small one
-                </p>
-              </div>
-              <div class="dashboard-content">
-                <ul class="nav nav-pills" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <a
-                      class="nav-link active"
-                      id="sell-tab"
-                      data-toggle="tab"
-                      href="#sell"
-                      role="tab"
-                      aria-controls="sell"
-                      aria-selected="true"
-                      >Sell Product</a
-                    >
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a
-                      class="nav-link"
-                      id="buy-tab"
-                      data-toggle="tab"
-                      href="#buy"
-                      role="tab"
-                      aria-controls="buy"
-                      aria-selected="false"
-                      >Buy Product</a
-                    >
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div
-                    class="tab-pane fade show active"
-                    id="sell"
-                    role="tabpanel"
-                    aria-labelledby="sell-tab"
-                  >
-                    <div class="row mt-3">
-                      <div class="col-12 mt-2">
-                        <a
-                          class="card card-list d-block"
-                          href="dashboard-transactions-details.html"
-                        >
-                          <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-1">
-                                <img
-                                  src="./images/dashboard/dashboard_product1.png"
-                                  alt=""
-                                  width="80px"
-                                />
-                              </div>
-                              <div class="col-md-4">
-                                Royal canin Kitten
-                              </div>
-                              <div class="col-md-3">To-Cat Store</div>
-                              <div class="col-md-3">12 Juli, 2022</div>
-                              <div class="col-md-1 d-none d-md-block">
-                                <img
-                                  src="./images/dashboard-arrow-right.svg"
-                                  alt=""
-                                  width="10px"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-
-                        <a
-                          class="card card-list d-block"
-                          href="dashboard-transactions-details.html"
-                        >
-                          <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-1">
-                                <img
-                                  src="./images/dashboard/pic1.png"
-                                  alt=""
-                                  width="80px"
-                                />
-                              </div>
-                              <div class="col-md-4">NMD_R1 Shoes</div>
-                              <div class="col-md-3">Arga</div>
-                              <div class="col-md-3">2 September, 2021</div>
-                              <div class="col-md-1 d-none d-md-block">
-                                <img
-                                  src="./images/dashboard-arrow-right.svg"
-                                  alt=""
-                                  width="10px"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-
-                        <a
-                          class="card card-list d-block"
-                          href="dashboard-transactions-details.html"
-                        >
-                          <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-1">
-                                <img
-                                  src="./images/dashboard/dashboard_product3.png"
-                                  alt=""
-                                  width="80px"
-                                />
-                              </div>
-                              <div class="col-md-4">Equlibrio Adult</div>
-                              <div class="col-md-3">Arga</div>
-                              <div class="col-md-3">30 Juli, 2021</div>
-                              <div class="col-md-1 d-none d-md-block">
-                                <img
-                                  src="./images/dashboard-arrow-right.svg"
-                                  alt=""
-                                  width="10px"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
+          <!--content-->
+          <h5 class="ml-5" style="margin-left: 4.5%; margin-top: 8%;">History Transaction</h5>
+            <div class="row ml-5">
+              <div class="col-lg-12" style="margin-left: 5%;">
+                @foreach ($orders as $order)
+                  <div class="row" @if($loop->index % 2 == 0) style="background-color: rgb(230, 230, 230);" @else style="background-color: rgb(243, 243, 243);" @endif>
+                    <!--code trx-->
+                    <div class="col-lg-3 float-left">
+                      <p style="margin-top: 8px;">{{ $order->id }}</p>
+                    </div>
+                    <!--nama-->
+                    <div class="col-lg-3">
+                      <p style="margin-top: 8px;">{{ $order->nama_penerima }}</p>
+                    </div>
+                    <!--tanggal-->
+                    <div class="col-lg-2">
+                      <p style="margin-top: 8px;">{{ $order->created_at }}</p>                    
+                    </div>
+                    <!--harga-->
+                    <div class="col-lg-1">
+                      <p class="mt-3 text-success text-center">Rp. {{ $order->total_harga }}</p>
+                    </div>
+                    <!--status-->
+                    <div class="col-lg-3">
+                      <a href="{{ route('dashboard.transactions.edit', ['order'=>$order->id]) }}" class="btn btn-warning ml-5" disabled style="margin-top: 8px;">Edit</a>                    
                     </div>
                   </div>
-                  
-                </div>
+                @endforeach
               </div>
             </div>
-          </div>
         </div>
         <!-- /#page-content-wrapper -->
 @endsection

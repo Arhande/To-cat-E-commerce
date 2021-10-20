@@ -43,7 +43,7 @@
             </li>
             @auth
                 <!-- Desktop Menu -->
-          <ul class="navbar-nav d-none d-lg-flex">
+            <ul class="navbar-nav d-none d-lg-flex">
               <li class="nav-item dropdown">
                 <a
                   href="#"
@@ -55,6 +55,7 @@
                   Hi, {{ auth()->user()->name }}
                 </a>
                 <div class="dropdown-menu">
+                  <a href="{{ route('orders.index') }}" class="dropdown-item">Order</a>
                   <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="dropdown-item">Logout</button>

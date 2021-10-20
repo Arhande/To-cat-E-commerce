@@ -55,4 +55,9 @@ class ProductController extends Controller
 
         return redirect()->route('products.detail', $product->id);
     }
+
+
+    public function create(){
+        
+    }
 }
